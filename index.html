@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Library</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Bibliothèque – TOP Library</title>
   </head>
   <body>
-    <script src="script.js" defer></script>
+    <h1>Ma Bibliothèque</h1>
+
+    <button id="newBookBtn">Nouveau Livre</button>
+
+    <form id="bookForm" class="hidden">
+      <div>
+        <label for="auteur">Auteur</label>
+        <input type="text" id="auteur" placeholder="Auteur" required />
+      </div>
+
+      <div>
+        <label for="titre">Titre</label>
+        <input type="text" id="titre" placeholder="Titre" required />
+      </div>
+
+      <div>
+        <label for="pages">Nombre de pages</label>
+        <input
+          type="number"
+          id="pages"
+          placeholder="Nombre de pages"
+          required
+          min="0"
+        />
+      </div>
+
+      <label> Déjà lu ? </label>
+      <input type="checkbox" id="lu" />
+
+      <button type="submit">Ajouter</button>
+    </form>
+    <div id="library"></div>
+
+    <script src="script.js"></script>
   </body>
 </html>
