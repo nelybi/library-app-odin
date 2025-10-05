@@ -8,18 +8,20 @@ newBookBtn.addEventListener("click", () => {
   bookForm.classList.toggle("hidden");
 });
 
-function Book(auteur, titre, pages, lu) {
+class Book {
   // le constructeur...
-  this.id = crypto.randomUUID();
-  this.auteur = auteur;
-  this.titre = titre;
-  this.pages = pages;
-  this.lu = lu;
-}
+  constructor(auteur, titre, pages, lu) {
+    this.id = crypto.randomUUID();
+    this.auteur = auteur;
+    this.titre = titre;
+    this.pages = pages;
+    this.lu = lu;
+  }
 
-Book.prototype.toggleRead = function () {
-  this.lu = !this.lu;
-};
+  toggleRead() {
+    this.lu = !this.lu;
+  }
+}
 
 function addBookToLibrary(auteur, titre, pages, lu) {
   // prendre des paramètres, créer un livre puis le stocker dans le tableau
@@ -53,7 +55,9 @@ function displayBooks() {
 
     const toggleButton = document.createElement("button");
 
-    toggleButton.innerText = "Changer le statut lu";
+    toggleButton.innerText = book.lu
+      ? "Marquer comme non lu"
+      : "Marquer comme lu";
 
     toggleButton.addEventListener("click", () => {
       const bookToToggle = myLibrary.find((b) => b.id === card.dataset.id);
